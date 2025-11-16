@@ -1,0 +1,22 @@
+class Solution {
+    public List<String> letterCombinations(String digits) {
+        String[] map={"","","abc","def","ghi","jkl","mno",
+                     "pqrs","tuv","wxyz"};
+        List<String> result= new ArrayList();
+        result.add("");
+        for(int i=0;i<digits.length();i++){
+            String  letters= map[digits.charAt(i)-'0'];
+
+            List<String> temp = new ArrayList();
+            for(int j=0;j<result.size();j++){
+                String old = result.get(j);
+
+                for(int k=0;k<letters.length();k++){
+                    temp.add(old+letters.charAt(k));
+                }    
+            }
+            result=temp;
+        }
+        return result;
+    }
+}
